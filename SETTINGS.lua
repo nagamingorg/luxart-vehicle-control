@@ -1,5 +1,5 @@
 --------------------COMMUNITY ID-------------------
-community_id = ''
+community_id = 'SQUAD5'
 --	Sets a prefix for saved values at the user end, without this people who play on multiple LVC server could face conflicts. **Once set DO NOT CHANGE. It will result in loss of data for end users.**
 --		I recommend something short (4-6 characters) for example a community abbreviation. SPACES ARE NOT ALLOWED.
 
@@ -21,7 +21,7 @@ reminder_rate = 10
 --	How often, in luxart key presses, to remind you that your siren controller is locked.
 
 -----------------HUD FUNCTIONALITY-----------------
-hud_first_default = true
+hud_first_default = false
 --	First state of HUD, otherwise it uses the players KVP setting (previous state). 
 
 ---------------MAIN SIREN SETTINGS-----------------
@@ -31,22 +31,14 @@ park_kill_masterswitch = true
 --	Enables park kill functionality. Setting this to false will not allow users to change from default behaviour this. 
 park_kill_default = false
 --	Default setting for park kill mode. (default: true)
-airhorn_interrupt_masterswitch = true
+airhorn_interrupt_masterswitch = false
 --	Enables ability to toggle air horn interrupt. Setting this to false will not allow users to change from default behaviour this. 
-airhorn_interrupt_default = true
+airhorn_interrupt_default = false
 --	Default setting of the airhorn interrupt for the main siren. (default: true) 
 reset_to_standby_masterswitch = true
 --	Enables ability to toggle reset to standby. Setting this to false will not allow users to change from default behaviour this. 
 reset_to_standby_default = true
 --	Default setting for Reset-To-Standby functionality. (default: true)
-horn_on_cycle_masterswitch = true
---	Enables ability to toggle horn-on-cycle functionality. Setting this to false will not allow users to change from default behaviour this. 
-horn_on_cycle_default = false
---	Default setting for horn-on-cycle functionality, when enabled your vehicles default horn is played when cycling sirens. (default: false)
-airhorn_behavior_masterswitch = true
---	Enables ability to customize horn-on-cycle functionality. Setting this to false will not allow users to change from default behaviour this. 
-airhorn_behavior_default = 4
---	Default setting for airhorn behavior: [1]-Disable Airhorn, [2]-Airhorn when lights are active, [3]-Airhorn when sirens active, [4]-Always use Airhorn. (default: 4) 
 
 --------------CUSTOM MANU/HORN/SIREN---------------
 custom_manual_tones_master_switch = true
@@ -61,7 +53,7 @@ main_siren_set_register_keys_set_defaults = true
 hazard_key = 202	
 left_signal_key = 84
 right_signal_key = 83
-hazard_hold_duration = 750
+hazard_hold_duration = 1000
 --	Time in milliseconds backspace must be pressed to turn on / off hazard lights. 
 
 

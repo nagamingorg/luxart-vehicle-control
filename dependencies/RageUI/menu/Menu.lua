@@ -73,19 +73,19 @@ function RageUI.CreateMenu(Title, Subtitle, X, Y, TextureDictionary, TextureName
         end
     end
 
-    CreateThread(function()
+    Citizen.CreateThread(function()
         if not HasScaleformMovieLoaded(Menu.InstructionalScaleform) then
             Menu.InstructionalScaleform = RequestScaleformMovie("INSTRUCTIONAL_BUTTONS")
             while not HasScaleformMovieLoaded(Menu.InstructionalScaleform) do
-                Wait(0)
+                Citizen.Wait(0)
             end
         end
     end)
 
-    CreateThread(function()
+    Citizen.CreateThread(function()
         local ScaleformMovie = RequestScaleformMovie("MP_MENU_GLARE")
         while not HasScaleformMovieLoaded(ScaleformMovie) do
-            Wait(0)
+            Citizen.Wait(0)
         end
     end)
 

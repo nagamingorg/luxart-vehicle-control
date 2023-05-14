@@ -10,6 +10,19 @@ FILE: cl_hud.lua
 PURPOSE: All HUD functions, callbacks, and GTA V 
 		 front-end functions.
 ---------------------------------------------------
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+---------------------------------------------------
 ]]
 HUD = { }
 
@@ -23,7 +36,7 @@ local HUD_backlight_state = false
 ---------------------------------------------------------------------
 --[[Gets initial HUD scale from JS]]
 CreateThread(function()
-	Wait(1000)
+	Wait(500)
 	SendNUIMessage({
 	  _type = 'hud:getHudScale',
 	})
@@ -91,8 +104,7 @@ function HUD:GetHudScale()
 	SendNUIMessage({
 	  _type = 'hud:getHudScale'
 	})
-	HUD_scale = HUD_scale or 0.6
-	return HUD_scale
+	return HUD_scale or 0.6
 end
 
 --[[Setter for HUD scale. Updates JS & CSS.]]
@@ -106,7 +118,7 @@ function HUD:SetHudScale(scale)
 end
 
 --[[Callback for JS -> LUA to set HUD_scale with current CSS]]
-RegisterNUICallback( 'hud:sendHudScale', function(scale, cb)
+RegisterNUICallback('hud:sendHudScale', function(scale, cb)
 	HUD_scale = scale
 end )
 
@@ -270,13 +282,13 @@ end
 
 ------------------------------------------------
 --Full screen Confirmation Message
-function HUD:FrontEndAlert(title, subtitle)
-	AddTextEntry('FACES_WARNH2', 'Warning')
-	AddTextEntry('QM_NO_0', 'Are you sure you want to delete all saved LVC data and Factory Reset?')
+function HUD:FrontEndAlert(title, subtitle, options)
+	AddTextEntry('FACES_WARNH2', title)
+	AddTextEntry('QM_NO_0', subtitle)
 	local result = -1
 	while result == -1 do
 		DrawFrontendAlert('FACES_WARNH2', 'QM_NO_0', 0, 0, '', 0, -1, 0, '', '', false, 0)
-		HUD:ShowText(0.5, 0.75, 0, '~g~No: Escape \t ~r~Yes: Enter', 0.75)
+		HUD:ShowText(0.5, 0.75, 0, options, 0.75)
 		if IsDisabledControlJustReleased(2, 202) then
 			return false
 		end		
@@ -290,8 +302,8 @@ end
 ------------------------------------------------
 --Get User Input from Keyboard
 function HUD:KeyboardInput(input_title, existing_text, max_length)
-	AddTextEntry('Custom_Keyboard_Title', input_title)
-	DisplayOnscreenKeyboard(1, 'Custom_Keyboard_Title', '', existing_text, '', '', '', max_length) 
+	AddTextEntry('custom_keyboard_title', input_title)
+	DisplayOnscreenKeyboard(1, 'custom_keyboard_title', '', existing_text, '', '', '', max_length) 
 
 	while UpdateOnscreenKeyboard() ~= 1 and UpdateOnscreenKeyboard() ~= 2 do
 		Wait(0)

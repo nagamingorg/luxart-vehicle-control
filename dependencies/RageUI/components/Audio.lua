@@ -20,10 +20,10 @@ function RageUI.PlaySound(Library, Sound, IsLooped)
         PlaySoundFrontend(-1, Sound, Library, true)
     else
         if not audioId then
-            CreateThread(function()
+            Citizen.CreateThread(function()
                 audioId = GetSoundId()
                 PlaySoundFrontend(audioId, Sound, Library, true)
-                Wait(0.01)
+                Citizen.Wait(0.01)
                 StopSound(audioId)
                 ReleaseSoundId(audioId)
                 audioId = nil
