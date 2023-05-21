@@ -88,7 +88,7 @@ SIRENS = {
 --ASSIGN SIRENS TO VEHICLES
 SIREN_ASSIGNMENTS = {
 	--['<gameName>'] = {tones},
-	['DEFAULT'] = { 1, 7, 10, 4 },
+	['DEFAULT'] = { 15, 16, 17, 18, 19, 20 },
 	-- LAW ENFORCEMENT --
 	['18tahoew'] = { 15, 16, 17, 18, 19, 20 },
 	['18burbanw'] = { 15, 16, 17, 18, 19, 20 },
